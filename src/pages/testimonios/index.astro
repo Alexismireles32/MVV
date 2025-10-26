@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+const testimonials = [
+  {
+    name: 'María G.',
+    location: 'California, USA',
+    timeUsing: 'Usando por 6 meses',
+    testimonial: 'Desde que empecé a usar los suplementos de MVV Natural, he notado una mejora significativa en mi energía diaria. Mi familia también los usa y estamos muy contentos con los resultados.',
+    rating: 5
+  },
+  {
+    name: 'Carlos R.',
+    location: 'Texas, USA',
+    timeUsing: 'Usando por 4 meses',
+    testimonial: 'Como padre, me preocupa la exposición de mis hijos a toxinas. Estos suplementos me dan tranquilidad sabiendo que estoy protegiendo su salud de forma natural.',
+    rating: 5
+  },
+  {
+    name: 'Ana L.',
+    location: 'Florida, USA',
+    timeUsing: 'Usando por 8 meses',
+    testimonial: 'La calidad de los productos es excepcional. He probado otros suplementos antes, pero ninguno con ingredientes tan limpios y efectivos como estos.',
+    rating: 5
+  },
+  {
+    name: 'Roberto M.',
+    location: 'Arizona, USA',
+    timeUsing: 'Usando por 5 meses',
+    testimonial: 'El servicio al cliente es excelente. Siempre responden rápido por WhatsApp y me ayudaron a elegir el producto correcto para mis necesidades.',
+    rating: 5
+  },
+  {
+    name: 'Laura S.',
+    location: 'Nevada, USA',
+    timeUsing: 'Usando por 3 meses',
+    testimonial: 'Noté una diferencia en mi sistema inmunológico. Este invierno no me he enfermado como otros años. Definitivamente seguiré usando estos suplementos.',
+    rating: 5
+  },
+  {
+    name: 'José P.',
+    location: 'New York, USA',
+    timeUsing: 'Usando por 7 meses',
+    testimonial: 'Mi esposa y yo estamos muy satisfechos. Los productos son de alta calidad y el precio es justo. La transparencia en los ingredientes es lo que más valoramos.',
+    rating: 5
+  },
+  {
+    name: 'Patricia V.',
+    location: 'Illinois, USA',
+    timeUsing: 'Usando por 2 meses',
+    testimonial: 'Apenas llevo dos meses pero ya siento más energía durante el día. Me gusta que sean productos naturales sin químicos dañinos.',
+    rating: 5
+  },
+  {
+    name: 'Miguel A.',
+    location: 'Georgia, USA',
+    timeUsing: 'Usando por 9 meses',
+    testimonial: 'Excelente inversión en salud. Toda mi familia los toma y hemos notado mejoras en nuestro bienestar general. Los recomiendo ampliamente.',
+    rating: 5
+  },
+  {
+    name: 'Carmen D.',
+    location: 'Washington, USA',
+    timeUsing: 'Usando por 6 meses',
+    testimonial: 'Me encanta que sean productos veganos y sin gluten. Como persona con sensibilidades alimentarias, es difícil encontrar suplementos de calidad que pueda tomar sin preocupaciones.',
+    rating: 5
+  }
+];
+
+// Review/AggregateRating JSON-LD
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "MVV Natural USA Suplementos",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": testimonials.length,
+    "bestRating": "5",
+    "worstRating": "5"
+  },
+  "review": testimonials.map((testimonial) => ({
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": testimonial.name
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": testimonial.rating,
+      "bestRating": "5"
+    },
+    "reviewBody": testimonial.testimonial
+  }))
+};
+---
+
+<BaseLayout
+  title="Testimonios — MVV Natural USA | Experiencias Reales"
+  description="Lee testimonios reales de clientes satisfechos que han mejorado su bienestar con nuestros suplementos naturales. Historias auténticas de familias en USA."
+  jsonLd={reviewSchema}
+>
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-cream to-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
+          Lo Que Dicen Nuestros Clientes
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 text-pretty">
+          Testimonios reales de familias que han mejorado su bienestar con nuestros suplementos naturales.
+        </p>
+        <div class="flex items-center justify-center gap-2 text-yellow-400">
+          {Array.from({ length: 5 }).map(() => (
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+        <p class="text-gray-600 mt-2">5.0 de 5 estrellas basado en {testimonials.length} reseñas</p>
+      </div>
+    </section>
+    
+    <!-- Testimonios Grid -->
+    <Section background="white">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard {...testimonial} />
+        ))}
+      </div>
+    </Section>
+    
+    <!-- Video Testimonial -->
+    <Section background="cream" title="Video Testimonial" subtitle="Escucha Directamente">
+      <div class="max-w-4xl mx-auto">
+        <div class="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+          <img 
+            src="/images/video-poster.webp"
+            alt="Video testimonial"
+            width="1280"
+            height="720"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <button 
+              class="bg-white/90 hover:bg-white text-primary rounded-full p-6 transition-all hover:scale-110"
+              aria-label="Reproducir video testimonial"
+            >
+              <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <p class="text-center text-gray-600 mt-4 italic">
+          "Los suplementos de MVV Natural han transformado la salud de mi familia" - Sandra M., Cliente desde 2023
+        </p>
+      </div>
+    </Section>
+    
+    <!-- CTA -->
+    <Section background="white">
+      <div class="bg-gradient-to-r from-primary to-green-600 rounded-2xl p-8 md:p-12 text-center text-white max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4 text-balance">
+          ¿Quieres Ser Parte de Estas Historias de Éxito?
+        </h2>
+        <p class="text-lg mb-6 opacity-90 text-pretty">
+          Contáctanos por WhatsApp y descubre cómo nuestros suplementos pueden ayudarte a ti y a tu familia.
+        </p>
+        <WhatsAppButton text="Comenzar Ahora" variant="inline" />
+      </div>
+    </Section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton variant="floating" />
+</BaseLayout>

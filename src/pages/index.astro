@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import BenefitCard from '../components/BenefitCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const benefits = [
+  {
+    icon: '🛡️',
+    title: 'Protección Natural',
+    description: 'Ingredientes naturales que ayudan a proteger tu cuerpo de toxinas ambientales y metales pesados.'
+  },
+  {
+    icon: '🌿',
+    title: 'Ingredientes Limpios',
+    description: 'Fórmulas sin aditivos artificiales, respaldadas por investigación científica y estudios clínicos.'
+  },
+  {
+    icon: '👨‍👩‍👧‍👦',
+    title: 'Para Toda la Familia',
+    description: 'Suplementos seguros y efectivos diseñados para el bienestar de adultos y niños.'
+  },
+  {
+    icon: '🔬',
+    title: 'Respaldo Científico',
+    description: 'Cada ingrediente está seleccionado basándose en evidencia científica y estudios de eficacia.'
+  }
+];
+
+const testimonials = [
+  {
+    name: 'María G.',
+    location: 'California, USA',
+    timeUsing: 'Usando por 6 meses',
+    testimonial: 'Desde que empecé a usar los suplementos de MVV Natural, he notado una mejora significativa en mi energía diaria. Mi familia también los usa y estamos muy contentos con los resultados.',
+    rating: 5
+  },
+  {
+    name: 'Carlos R.',
+    location: 'Texas, USA',
+    timeUsing: 'Usando por 4 meses',
+    testimonial: 'Como padre, me preocupa la exposición de mis hijos a toxinas. Estos suplementos me dan tranquilidad sabiendo que estoy protegiendo su salud de forma natural.',
+    rating: 5
+  },
+  {
+    name: 'Ana L.',
+    location: 'Florida, USA',
+    timeUsing: 'Usando por 8 meses',
+    testimonial: 'La calidad de los productos es excepcional. He probado otros suplementos antes, pero ninguno con ingredientes tan limpios y efectivos como estos.',
+    rating: 5
+  }
+];
+
+const faqs = [
+  {
+    question: '¿Son seguros estos suplementos para toda la familia?',
+    answer: 'Sí, nuestros suplementos están formulados con ingredientes naturales seguros. Sin embargo, recomendamos consultar con un profesional de la salud antes de comenzar cualquier suplemento, especialmente para niños, mujeres embarazadas o personas con condiciones médicas.'
+  },
+  {
+    question: '¿Cuánto tiempo tarda en verse resultados?',
+    answer: 'Los resultados varían según cada persona. Algunos usuarios reportan mejoras en energía y bienestar en las primeras semanas, mientras que los beneficios completos suelen observarse después de 2-3 meses de uso consistente.'
+  },
+  {
+    question: '¿Tienen efectos secundarios?',
+    answer: 'Nuestros suplementos están hechos con ingredientes naturales y generalmente son bien tolerados. En casos raros, algunas personas pueden experimentar molestias digestivas leves al inicio. Si experimenta algún efecto adverso, suspenda el uso y consulte a su médico.'
+  },
+  {
+    question: '¿Cómo debo tomar los suplementos?',
+    answer: 'Las instrucciones específicas de dosificación vienen en cada producto. Generalmente recomendamos tomarlos con alimentos para mejor absorción. Contáctenos por WhatsApp para recomendaciones personalizadas.'
+  }
+];
+---
+
+<BaseLayout
+  title="MVV Natural USA — Suplementos naturales con respaldo científico"
+  description="Información clara, testimonios reales y asesoría por WhatsApp. Conoce cómo nuestros suplementos naturales apoyan el bienestar de tu familia."
+>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Protege a tu familia de toxinas ocultas de forma natural"
+      subtitle="Suplementos Naturales con Respaldo Científico"
+      description="Descubre cómo nuestros suplementos naturales pueden ayudar a proteger a tu familia de la exposición diaria a toxinas ambientales y metales pesados."
+      ctaText="Consultar por WhatsApp"
+    />
+    
+    <!-- Cómo Funciona -->
+    <Section 
+      title="¿Cómo Funciona?" 
+      subtitle="Proceso Natural"
+      background="cream"
+    >
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-xl font-bold mb-3">Consulta Personalizada</h3>
+          <p class="text-gray-700">Contáctanos por WhatsApp para recibir asesoría sobre qué suplementos son mejores para ti y tu familia.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-xl font-bold mb-3">Uso Consistente</h3>
+          <p class="text-gray-700">Sigue las recomendaciones de dosificación para obtener los mejores resultados a lo largo del tiempo.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-xl font-bold mb-3">Resultados Naturales</h3>
+          <p class="text-gray-700">Experimenta mejoras en tu bienestar general mientras proteges tu cuerpo de forma natural.</p>
+        </div>
+      </div>
+    </Section>
+    
+    <!-- Beneficios -->
+    <Section 
+      title="Beneficios de Nuestros Suplementos" 
+      subtitle="¿Por Qué Elegirnos?"
+      background="white"
+    >
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benefits.map((benefit) => (
+          <BenefitCard {...benefit} />
+        ))}
+      </div>
+    </Section>
+    
+    <!-- Ingredientes -->
+    <Section 
+      title="Ingredientes Limpios y Naturales" 
+      subtitle="Transparencia Total"
+      background="cream"
+    >
+      <div class="max-w-4xl mx-auto">
+        <p class="text-lg text-gray-700 text-center mb-8 leading-relaxed">
+          Cada ingrediente en nuestros suplementos ha sido cuidadosamente seleccionado por su pureza, eficacia y respaldo científico. No utilizamos rellenos artificiales, colorantes sintéticos ni conservadores dañinos.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div class="bg-white p-6 rounded-xl">
+            <div class="text-3xl mb-3">✓</div>
+            <h4 class="font-bold mb-2">Sin GMO</h4>
+            <p class="text-sm text-gray-600">Ingredientes no modificados genéticamente</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl">
+            <div class="text-3xl mb-3">✓</div>
+            <h4 class="font-bold mb-2">Sin Gluten</h4>
+            <p class="text-sm text-gray-600">Aptos para personas con sensibilidad</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl">
+            <div class="text-3xl mb-3">✓</div>
+            <h4 class="font-bold mb-2">Vegano</h4>
+            <p class="text-sm text-gray-600">100% ingredientes de origen vegetal</p>
+          </div>
+        </div>
+      </div>
+    </Section>
+    
+    <!-- Testimonios -->
+    <Section 
+      title="Lo Que Dicen Nuestros Clientes" 
+      subtitle="Testimonios Reales"
+      background="white"
+    >
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard {...testimonial} />
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="/testimonios/" class="text-primary font-semibold hover:underline">
+          Ver más testimonios →
+        </a>
+      </div>
+    </Section>
+    
+    <!-- FAQ -->
+    <Section 
+      title="Preguntas Frecuentes" 
+      subtitle="Resolvemos tus Dudas"
+      background="cream"
+    >
+      <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+        {faqs.map((faq, index) => (
+          <FAQItem {...faq} id={`home-${index}`} />
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/preguntas/" class="text-primary font-semibold hover:underline">
+          Ver todas las preguntas →
+        </a>
+      </div>
+    </Section>
+    
+    <!-- CTA Final -->
+    <Section background="white">
+      <div class="bg-gradient-to-r from-primary to-green-600 rounded-2xl p-8 md:p-12 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          ¿Listo para Proteger a tu Familia?
+        </h2>
+        <p class="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto text-pretty">
+          Contáctanos por WhatsApp para recibir asesoría personalizada y descubrir qué suplementos son ideales para ti.
+        </p>
+        <WhatsAppButton text="Consultar Ahora" variant="inline" />
+      </div>
+    </Section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton variant="floating" />
+</BaseLayout>

@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+const faqs = [
+  {
+    question: '¿Son seguros estos suplementos para toda la familia?',
+    answer: 'Sí, nuestros suplementos están formulados con ingredientes naturales seguros. Sin embargo, recomendamos consultar con un profesional de la salud antes de comenzar cualquier suplemento, especialmente para niños menores de 4 años, mujeres embarazadas o personas con condiciones médicas preexistentes.'
+  },
+  {
+    question: '¿Cuánto tiempo tarda en verse resultados?',
+    answer: 'Los resultados varían según cada persona y el producto específico. Algunos usuarios reportan mejoras en energía y bienestar en las primeras 1-2 semanas, mientras que los beneficios completos suelen observarse después de 2-3 meses de uso consistente. La clave es la constancia.'
+  },
+  {
+    question: '¿Tienen efectos secundarios?',
+    answer: 'Nuestros suplementos están hechos con ingredientes naturales y generalmente son bien tolerados. En casos raros, algunas personas pueden experimentar molestias digestivas leves al inicio. Si experimenta algún efecto adverso, suspenda el uso y consulte a su médico.'
+  },
+  {
+    question: '¿Cómo debo tomar los suplementos?',
+    answer: 'Las instrucciones específicas de dosificación vienen en cada producto. Generalmente recomendamos tomarlos con alimentos para mejor absorción y tolerancia digestiva. Es importante mantener una rutina consistente. Contáctenos por WhatsApp para recomendaciones personalizadas.'
+  },
+  {
+    question: '¿Puedo tomar varios productos al mismo tiempo?',
+    answer: 'Sí, nuestros productos están diseñados para complementarse entre sí. Muchos clientes combinan Detox Natural con Inmuno Plus o Energía Vital. Sin embargo, recomendamos comenzar con un producto a la vez y consultar con nosotros para crear un plan personalizado.'
+  },
+  {
+    question: '¿Los suplementos son veganos y sin gluten?',
+    answer: 'Sí, todos nuestros suplementos son 100% veganos, sin gluten, sin GMO y sin ingredientes artificiales. Son aptos para personas con diversas restricciones dietéticas y sensibilidades alimentarias.'
+  },
+  {
+    question: '¿Cómo puedo hacer un pedido?',
+    answer: 'Contáctanos directamente por WhatsApp haciendo clic en el botón de WhatsApp en esta página. Nuestro equipo te guiará en el proceso de pedido y responderá todas tus preguntas personalizadas.'
+  },
+  {
+    question: '¿Hacen envíos a todo Estados Unidos?',
+    answer: 'Sí, realizamos envíos a todos los estados de USA. Los tiempos de entrega varían según la ubicación, pero generalmente son de 3-7 días hábiles. Contáctanos por WhatsApp para información específica sobre envíos a tu área.'
+  },
+  {
+    question: '¿Ofrecen garantía de satisfacción?',
+    answer: 'Sí, estamos comprometidos con tu satisfacción. Si no estás completamente satisfecho con tu compra, contáctanos dentro de los primeros 30 días y trabajaremos contigo para resolver cualquier inquietud.'
+  },
+  {
+    question: '¿Los productos tienen certificaciones?',
+    answer: 'Nuestros productos son fabricados en instalaciones certificadas que siguen estrictos estándares de calidad. Todos los ingredientes son probados por terceros para garantizar pureza y potencia. Contáctanos para más información sobre certificaciones específicas.'
+  },
+  {
+    question: '¿Puedo tomar los suplementos si estoy tomando medicamentos?',
+    answer: 'Aunque nuestros suplementos son naturales, algunos ingredientes pueden interactuar con ciertos medicamentos. Es fundamental consultar con su médico o farmacéutico antes de comenzar cualquier suplemento si está tomando medicamentos recetados.'
+  },
+  {
+    question: '¿Son seguros durante el embarazo o lactancia?',
+    answer: 'Recomendamos que las mujeres embarazadas o en período de lactancia consulten con su médico antes de tomar cualquier suplemento. Algunos ingredientes pueden no ser apropiados durante estas etapas.'
+  },
+  {
+    question: '¿Cómo debo almacenar los suplementos?',
+    answer: 'Almacene los suplementos en un lugar fresco y seco, alejado de la luz solar directa y fuera del alcance de los niños. No refrigere a menos que se indique específicamente en la etiqueta del producto.'
+  },
+  {
+    question: '¿Cuál es la fecha de caducidad de los productos?',
+    answer: 'Todos nuestros productos tienen una fecha de caducidad impresa en el envase. Generalmente, los suplementos tienen una vida útil de 2 años desde la fecha de fabricación cuando se almacenan correctamente.'
+  },
+  {
+    question: '¿Ofrecen descuentos por compras al mayoreo?',
+    answer: 'Sí, ofrecemos precios especiales para compras de múltiples unidades o pedidos familiares. Contáctanos por WhatsApp para conocer nuestras ofertas actuales y planes de descuento.'
+  },
+  {
+    question: '¿Puedo cancelar o modificar mi pedido?',
+    answer: 'Puedes cancelar o modificar tu pedido contactándonos por WhatsApp lo antes posible. Una vez que el pedido ha sido enviado, no podemos realizar cambios, pero podemos ayudarte con devoluciones o cambios después de la entrega.'
+  },
+  {
+    question: '¿Qué métodos de pago aceptan?',
+    answer: 'Aceptamos diversos métodos de pago seguros. Contáctanos por WhatsApp y te informaremos sobre las opciones disponibles para tu ubicación y preferencias.'
+  },
+  {
+    question: '¿Tienen tienda física donde pueda comprar?',
+    answer: 'Actualmente operamos principalmente en línea para ofrecerte los mejores precios. Esto nos permite mantener costos bajos y pasar esos ahorros a nuestros clientes. Contáctanos por WhatsApp para realizar tu pedido.'
+  },
+  {
+    question: '¿Cómo puedo rastrear mi pedido?',
+    answer: 'Una vez que tu pedido sea enviado, recibirás un número de rastreo por WhatsApp o email. Podrás usar este número para seguir tu paquete en tiempo real hasta que llegue a tu puerta.'
+  },
+  {
+    question: '¿Tienen programa de referidos o afiliados?',
+    answer: 'Sí, valoramos las recomendaciones de nuestros clientes satisfechos. Contáctanos por WhatsApp para conocer más sobre nuestro programa de referidos y cómo puedes beneficiarte al compartir MVV Natural con amigos y familia.'
+  }
+];
+
+// FAQPage JSON-LD
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="Preguntas Frecuentes — MVV Natural USA"
+  description="Encuentra respuestas a las preguntas más comunes sobre nuestros suplementos naturales, envíos, uso, seguridad y más. Información clara y transparente."
+  jsonLd={faqSchema}
+>
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-cream to-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
+          Preguntas Frecuentes
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto text-pretty">
+          Encuentra respuestas a las preguntas más comunes sobre nuestros suplementos naturales. Si no encuentras lo que buscas, contáctanos por WhatsApp.
+        </p>
+      </div>
+    </section>
+    
+    <!-- FAQ Accordion -->
+    <Section background="white">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          {faqs.map((faq, index) => (
+            <FAQItem {...faq} id={`faq-${index}`} />
+          ))}
+        </div>
+      </div>
+    </Section>
+    
+    <!-- CTA -->
+    <Section background="cream">
+      <div class="bg-white rounded-2xl p-8 md:p-12 text-center shadow-lg max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 text-balance">
+          ¿Tienes Más Preguntas?
+        </h2>
+        <p class="text-lg text-gray-700 mb-6 text-pretty">
+          Nuestro equipo está listo para ayudarte. Contáctanos por WhatsApp y responderemos todas tus dudas de forma personalizada.
+        </p>
+        <WhatsAppButton text="Hacer una Pregunta" variant="inline" />
+      </div>
+    </Section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton variant="floating" />
+</BaseLayout>

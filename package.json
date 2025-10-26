@@ -1,0 +1,17 @@
+{
+  "name": "mvv-natural-usa",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.1.5",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/sitemap": "^3.6.0",
+    "tailwindcss": "^4.1.9"
+  }
+}

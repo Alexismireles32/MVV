@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+
+const lastUpdated = 'Enero 2025';
+---
+
+<BaseLayout
+  title="Aviso Legal — MVV Natural USA"
+  description="Aviso legal y términos de uso del sitio web de MVV Natural USA."
+>
+  <Header />
+  
+  <main>
+    <Section background="white">
+      <div class="max-w-4xl mx-auto prose prose-lg">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Aviso Legal</h1>
+        <p class="text-gray-600 mb-8">Última actualización: {lastUpdated}</p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Información General</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Este sitio web es operado por MVV Natural USA. Al acceder y utilizar este sitio web, usted acepta cumplir con estos términos y condiciones de uso.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Uso del Sitio Web</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          El contenido de este sitio web es únicamente para su información general y uso personal. Está sujeto a cambios sin previo aviso.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Propiedad Intelectual</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Este sitio web contiene material que es propiedad de o está licenciado a MVV Natural USA. Este material incluye, pero no se limita a, el diseño, la disposición, la apariencia, el aspecto y los gráficos. La reproducción está prohibida sin el consentimiento expreso por escrito.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Descargo de Responsabilidad Médica</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          <strong>IMPORTANTE:</strong> La información proporcionada en este sitio web es solo para fines informativos y educativos. No está destinada a ser un sustituto del consejo médico profesional, diagnóstico o tratamiento.
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+          <li>Siempre busque el consejo de su médico u otro proveedor de salud calificado con cualquier pregunta que pueda tener sobre una condición médica.</li>
+          <li>Nunca ignore el consejo médico profesional ni demore en buscarlo debido a algo que haya leído en este sitio web.</li>
+          <li>Las declaraciones sobre suplementos dietéticos no han sido evaluadas por la FDA y no están destinadas a diagnosticar, tratar, curar o prevenir ninguna enfermedad o condición de salud.</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Limitación de Responsabilidad</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          El uso de este sitio web es bajo su propio riesgo. MVV Natural USA no será responsable de ningún daño directo, indirecto, incidental, consecuente o punitivo que surja del acceso o uso de este sitio web.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Productos y Servicios</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Nos esforzamos por proporcionar información precisa sobre nuestros productos. Sin embargo, no garantizamos que las descripciones de productos u otro contenido sean precisos, completos, confiables, actuales o libres de errores.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Enlaces a Sitios de Terceros</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Este sitio web puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para su conveniencia. No tenemos control sobre el contenido de estos sitios y no asumimos ninguna responsabilidad por ellos.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Modificaciones</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          MVV Natural USA se reserva el derecho de modificar estos términos en cualquier momento. Es su responsabilidad revisar estos términos periódicamente.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Ley Aplicable</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Estos términos se regirán e interpretarán de acuerdo con las leyes de los Estados Unidos de América.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">10. Contacto</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Si tiene alguna pregunta sobre este Aviso Legal, contáctenos:
+        </p>
+        <ul class="list-none text-gray-700 space-y-2 mb-4">
+          <li>Email: info@mvvnaturalusa.com</li>
+          <li>WhatsApp: +1 (520) 216-1443</li>
+        </ul>
+      </div>
+    </Section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

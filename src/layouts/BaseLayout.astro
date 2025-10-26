@@ -1,0 +1,80 @@
+---
+const { 
+  title, 
+  description, 
+  canonical = Astro.url.pathname,
+  ogImage = '/images/og-default.webp',
+  jsonLd 
+} = Astro.props;
+
+const canonicalURL = new URL(canonical, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+// Organization JSON-LD
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MVV Natural USA",
+  "url": "https://mvvnaturalusa.com",
+  "logo": "https://mvvnaturalusa.com/images/logo.webp",
+  "description": "Suplementos naturales con respaldo científico para el bienestar de tu familia",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-520-216-1443",
+    "contactType": "customer service",
+    "availableLanguage": ["es", "en"]
+  },
+  "sameAs": [
+    "https://facebook.com/mvvnaturalusa",
+    "https://instagram.com/mvvnaturalusa"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="es-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="language" content="es-US" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="es_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="es-US" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    
+    <!-- Additional JSON-LD -->
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+    
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

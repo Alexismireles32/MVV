@@ -1,0 +1,41 @@
+---
+const { question, answer, id } = Astro.props;
+---
+
+<div class="border-b border-gray-200 last:border-0">
+  <button
+    class="faq-button w-full py-5 px-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+    aria-expanded="false"
+    aria-controls={`faq-answer-${id}`}
+  >
+    <span class="font-semibold text-gray-900 pr-8 text-balance">{question}</span>
+    <svg 
+      class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform"
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <div 
+    id={`faq-answer-${id}`}
+    class="faq-answer hidden px-6 pb-5"
+  >
+    <p class="text-gray-700 leading-relaxed text-pretty">{answer}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      answer?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
+  });
+</script>

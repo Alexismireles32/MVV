@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+
+const lastUpdated = 'Enero 2025';
+---
+
+<BaseLayout
+  title="Política de Privacidad — MVV Natural USA"
+  description="Política de privacidad de MVV Natural USA. Conoce cómo protegemos y manejamos tu información personal."
+>
+  <Header />
+  
+  <main>
+    <Section background="white">
+      <div class="max-w-4xl mx-auto prose prose-lg">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Política de Privacidad</h1>
+        <p class="text-gray-600 mb-8">Última actualización: {lastUpdated}</p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Introducción</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          En MVV Natural USA, nos comprometemos a proteger su privacidad y la seguridad de su información personal. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando visita nuestro sitio web o utiliza nuestros servicios.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Información que Recopilamos</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Podemos recopilar la siguiente información:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+          <li>Nombre y apellidos</li>
+          <li>Información de contacto (dirección de correo electrónico, número de teléfono)</li>
+          <li>Dirección de envío</li>
+          <li>Información de pago (procesada de forma segura por terceros)</li>
+          <li>Información sobre su uso de nuestro sitio web</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Cómo Usamos su Información</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Utilizamos la información recopilada para:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+          <li>Procesar y completar sus pedidos</li>
+          <li>Comunicarnos con usted sobre sus pedidos y consultas</li>
+          <li>Mejorar nuestros productos y servicios</li>
+          <li>Enviar información promocional (solo con su consentimiento)</li>
+          <li>Cumplir con obligaciones legales</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Protección de Datos</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Compartir Información</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          No vendemos, intercambiamos ni transferimos su información personal a terceros sin su consentimiento, excepto cuando sea necesario para:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+          <li>Procesar pagos (procesadores de pago seguros)</li>
+          <li>Realizar envíos (empresas de mensajería)</li>
+          <li>Cumplir con requisitos legales</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Cookies</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Nuestro sitio web puede utilizar cookies para mejorar su experiencia de navegación. Puede configurar su navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del sitio.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Sus Derechos</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Usted tiene derecho a:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+          <li>Acceder a su información personal</li>
+          <li>Corregir información inexacta</li>
+          <li>Solicitar la eliminación de su información</li>
+          <li>Oponerse al procesamiento de su información</li>
+          <li>Retirar su consentimiento en cualquier momento</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Enlaces a Terceros</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Nuestro sitio web puede contener enlaces a sitios de terceros. No somos responsables de las prácticas de privacidad de estos sitios externos.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Cambios a esta Política</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Los cambios serán publicados en esta página con una fecha de actualización revisada.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">10. Contacto</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Si tiene preguntas sobre esta Política de Privacidad, contáctenos:
+        </p>
+        <ul class="list-none text-gray-700 space-y-2 mb-4">
+          <li>Email: info@mvvnaturalusa.com</li>
+          <li>WhatsApp: +1 (520) 216-1443</li>
+        </ul>
+      </div>
+    </Section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
